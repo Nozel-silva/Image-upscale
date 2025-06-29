@@ -16,27 +16,39 @@ export default function ImageUpscaler() {
     setOutputUrl(null);
   };
 
-  const handleUpload = async () => {
-    if (!file) return;
-    setLoading(true);
-    const formData = new FormData();
-    formData.append("image", file);
+  
+  const handleEnhance = async () => {
+  if (!file) return;
+  setLoading(true);
 
-    try {
-      const response = await axios.post("https://api.deepai.org/api/torch-srgan", formData, {
+  const formData = new FormData();
+  formData.append("image", file);
+
+  try {
+    const response = await axios.post(
+      "https://api.deepai.org/api/torch-srgan",
+      formData,
+      {
         headers: {
-          "api-key": "bd3633cd-2482-4794-af17-d56d90e54980",
+          "api-key": "bd3633cd-2482-4794-af17-d56d90e54980",  // ✅ Your key is here
           "Content-Type": "multipart/form-data",
         },
-      });
+      }
+    );
+
+    if (response.data.output_url) {
       setOutputUrl(response.data.output_url);
-    } catch (error) {
-      alert("Error enhancing image.");
-      console.error(error);
-    } finally {
-      setLoading(false);
+    } else {
+      alert("Enhancement failed. Try another image.");
     }
-  };
+  } catch (error) {
+    console.error("Enhancement error:", error.response?.data || error.message);
+    alert("Error: " + (error.response?.data?.err || error.message));
+  } finally {
+    setLoading(false);
+  }
+};
+
 
   return (
     <div className="container">
