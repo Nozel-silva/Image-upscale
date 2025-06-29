@@ -25,7 +25,7 @@ export default function ImageUpscaler() {
     try {
       const response = await axios.post("https://api.deepai.org/api/torch-srgan", formData, {
         headers: {
-          "api-key": "YOUR_DEEPAI_API_KEY",
+          "api-key": "bd3633cd-2482-4794-af17-d56d90e54980",
           "Content-Type": "multipart/form-data",
         },
       });
