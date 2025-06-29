@@ -13,9 +13,9 @@ function App() {
     if (img && img.type.startsWith("image/")) {
       setFile(img);
       setPreview(URL.createObjectURL(img));
-      setOutputUrl(null); // reset previous result
+      setOutputUrl(null);
     } else {
-      alert("Please upload a valid image file (JPG/PNG)");
+      alert("Please upload a valid image file.");
     }
   };
 
@@ -32,7 +32,7 @@ function App() {
         formData,
         {
           headers: {
-            "api-key": "bd3633cd-2482-4794-af17-d56d90e54980", // ✅ Your real API key
+            "api-key": "bd3633cd-2482-4794-af17-d56d90e54980",
             "Content-Type": "multipart/form-data",
           },
         }
@@ -53,39 +53,37 @@ function App() {
 
   return (
     <div className="app">
-      <h1>Image Upscaler</h1>
-      <p>Upload a blurry or low-res image and enhance it to HD using AI.</p>
+      <h1 className="glow-text">Image Upscaler</h1>
+      <p className="description">
+        Upload a blurry or low-res image and boost it to HD using futuristic AI.
+      </p>
 
       <input type="file" accept="image/*" onChange={handleFileChange} />
 
       {preview && (
-        <div className="image-box">
-          <p>Preview:</p>
-          <img src={preview} alt="Preview" className="preview" />
+        <div className="image-container">
+          <p className="label">📷 Uploaded Preview</p>
+          <img src={preview} alt="Preview" className="image-box" />
         </div>
       )}
 
-      <button onClick={handleEnhance} disabled={loading}>
-        {loading ? "Enhancing..." : "Enhance Image"}
+      <button onClick={handleEnhance} disabled={loading} className="enhance-btn">
+        {loading ? "Enhancing..." : "Enhance to HD"}
       </button>
 
       {outputUrl && (
-        <div className="image-box">
-          <p>Enhanced Result:</p>
-          <img src={outputUrl} alt="HD Result" className="result" />
-          <br />
-          <a href={outputUrl} download>
-            Download HD Image
-          </a>
+        <div className="image-container">
+          <p className="label">🚀 Enhanced Output</p>
+          <img src={outputUrl} alt="Enhanced" className="image-box" />
+          <a href={outputUrl} download className="download-link">Download Image</a>
         </div>
       )}
 
-      <footer>
-        <p>Powered by LeadingEdge + DeepAI</p>
+      <footer className="footer">
+        ⚡ Powered by <span className="brand">LeadingEdge</span> + DeepAI ⚡
       </footer>
     </div>
   );
 }
 
 export default App;
-    
