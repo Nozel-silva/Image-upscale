@@ -1,7 +1,7 @@
 // ImageUpscaler.jsx
-import './App.css';
 import React, { useState } from "react";
 import axios from "axios";
+import './App.css';
 
 export default function ImageUpscaler() {
   const [file, setFile] = useState(null);
@@ -39,31 +39,44 @@ export default function ImageUpscaler() {
   };
 
   return (
-    <div className="p-6 max-w-xl mx-auto text-center space-y-6">
-      <h1 className="text-3xl font-bold">Image HD Upscaler</h1>
+    <div className="container">
+      <h1>🔍 Image HD Upscaler</h1>
+      <p className="subtitle">Upload any blurry or low-resolution image and get a high-quality HD version in seconds.</p>
+      <p className="instructions">1. Select an image (PNG or JPG).<br />2. Tap "Enhance Image".<br />3. Download the improved version.</p>
       <input type="file" accept="image/*" onChange={handleFileChange} />
-      {preview && <img src={preview} alt="preview" className="max-w-full mx-auto mt-4 rounded-lg" />}
+
+      {preview && (
+        <img
+          src={preview}
+          alt="Preview"
+          className="image-box"
+        />
+      )}
+
       <button
-        className="mt-4 bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"
+        className="enhance-btn"
         onClick={handleUpload}
         disabled={loading}
       >
         {loading ? "Enhancing..." : "Enhance Image"}
       </button>
+
       {outputUrl && (
         <div>
-          <h2 className="text-xl mt-6">HD Result:</h2>
-          <img src={outputUrl} alt="Enhanced" className="max-w-full mt-2 rounded-lg" />
+          <h2 className="result-title">🔧 Enhanced Result:</h2>
+          <img src={outputUrl} alt="Enhanced" className="image-box" />
           <a
             href={outputUrl}
             download
-            className="mt-4 inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+            className="download-btn"
           >
-            Download HD
+            ⬇ Download HD Image
           </a>
         </div>
       )}
+
+      <footer className="footer">⚡ Powered by <strong>LeadingEdge Virtual Insight</strong></footer>
     </div>
   );
-    }
-  
+       }
+       
