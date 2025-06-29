@@ -1,90 +1,92 @@
-.container {
-  padding: 24px;
+body {
+  margin: 0;
+  background: #0f0f0f;
+  font-family: "Orbitron", sans-serif;
+  color: #ffffff;
+}
+
+.app {
+  text-align: center;
+  padding: 2rem;
   max-width: 600px;
   margin: auto;
-  text-align: center;
-  font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
-  color: #f1f1f1;
-  border-radius: 12px;
-  margin-top: 20px;
-  box-shadow: 0 0 20px rgba(0,0,0,0.4);
 }
 
-h1 {
-  font-size: 26px;
-  font-weight: bold;
-  margin-bottom: 10px;
+.glow-text {
+  font-size: 2rem;
+  color: #00ffcc;
+  text-shadow: 0 0 10px #00ffcc, 0 0 20px #00ffcc;
 }
 
-.subtitle {
+.description {
   font-size: 14px;
-  margin-bottom: 15px;
-  color: #ddd;
-}
-
-.instructions {
-  font-size: 12px;
-  color: #aaa;
+  color: #cccccc;
   margin-bottom: 20px;
-  line-height: 1.5;
 }
 
 input[type="file"] {
-  margin: 16px 0;
-  background: #fff;
-  padding: 8px;
-  border-radius: 6px;
+  margin: 20px auto;
+  padding: 10px;
+  background: #222;
+  border: 1px solid #444;
+  color: #00ffcc;
+  border-radius: 8px;
+}
+
+.image-container {
+  margin: 20px auto;
+  padding: 15px;
+  border: 2px solid #00ffcc;
+  border-radius: 12px;
+  width: 220px;
+  background-color: #1a1a1a;
 }
 
 .image-box {
   width: 200px;
   height: 200px;
   object-fit: cover;
-  margin-top: 16px;
-  border-radius: 10px;
-  border: 2px solid #fff;
-  box-shadow: 0 0 10px rgba(255,255,255,0.3);
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+.label {
+  font-weight: bold;
+  color: #00ffaa;
 }
 
 .enhance-btn {
-  margin-top: 16px;
-  padding: 10px 20px;
-  background-color: #00ff88;
+  padding: 12px 20px;
+  font-size: 16px;
+  background-color: #00ffaa;
   color: #000;
-  font-weight: bold;
   border: none;
-  border-radius: 8px;
-  transition: background 0.3s ease;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 15px;
+  box-shadow: 0 0 10px #00ffaa;
 }
 
-.enhance-btn:hover {
-  background-color: #00cc66;
+.enhance-btn:disabled {
+  background-color: #888;
+  box-shadow: none;
 }
 
-.result-title {
-  margin-top: 30px;
-  font-size: 20px;
-  color: #fff;
-}
-
-.download-btn {
-  margin-top: 20px;
+.download-link {
   display: inline-block;
-  background: #2196F3;
-  color: white;
-  padding: 10px 16px;
-  border-radius: 8px;
-  text-decoration: none;
-  transition: background 0.3s ease;
-}
-
-.download-btn:hover {
-  background: #1769aa;
+  margin-top: 10px;
+  color: #00ffcc;
+  text-decoration: underline;
+  font-size: 14px;
 }
 
 .footer {
   margin-top: 40px;
   font-size: 13px;
-  color: #aaa;
+  color: #666;
+}
+
+.brand {
+  color: #00ffaa;
+  font-weight: bold;
 }
